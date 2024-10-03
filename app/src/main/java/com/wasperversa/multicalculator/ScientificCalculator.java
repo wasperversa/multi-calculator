@@ -502,18 +502,23 @@ public class ScientificCalculator extends AppCompatActivity {
 
     private void operationClicked(String op) {
         if (e2.length() != 0) {
+            // Get the current number in e2
             String text = e2.getText().toString();
+            // Append the current number and operator to e1
             e1.setText(e1.getText() + text + op);
+            // Clear e2 for the next number input
             e2.setText("");
             count = 0;
         } else {
+            // If e2 is empty, check if there's an operator already in e1 and replace it
             String text = e1.getText().toString();
-            if (text.length() > 0) {
+            if (text.length() > 0 && !Character.isDigit(text.charAt(text.length() - 1))) {
                 String newText = text.substring(0, text.length() - 1) + op;
                 e1.setText(newText);
             }
         }
     }
+
 
     @Override
     public void onBackPressed() {

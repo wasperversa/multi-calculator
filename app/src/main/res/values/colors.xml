@@ -7,6 +7,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="textColor">#000000</color> <!-- Black text for light mode -->
+    <color name="backgroundColor">#FFFFFF</color> <!-- White background -->
     <color name="oper_text_color">#1db7bd</color>
     <color name="equl_text_color">#ffffff</color>
     <color name="main_backg_color">#ffffff</color>

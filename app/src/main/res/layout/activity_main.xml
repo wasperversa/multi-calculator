@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="#f6f8fa"
+    android:background="@color/backgroundColor"
 
     >
 
@@ -48,6 +48,7 @@
                    android:lineSpacingExtra="11sp"
                    android:text="Welcome to"
                    android:textColor="#7eacf7"
+                   android:background="@color/backgroundColor"
                    android:textSize="18sp" />
 
                <TextView
@@ -61,6 +62,7 @@
                    android:lineSpacingExtra="11sp"
                    android:text="Multi Calculator"
                    android:textColor="#3573e9"
+                   android:background="@color/backgroundColor"
                    android:textSize="35sp" />
 
                <ImageView

@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.FullScreenContentCallback;
@@ -156,7 +157,6 @@ public class BMICalculator extends AppCompatActivity {
     }
 
     private void CheckWeight() {
-
         final TextView weight_txt = findViewById(R.id.weight);
 
         weight_plus.setOnClickListener(new View.OnClickListener() {
@@ -164,6 +164,7 @@ public class BMICalculator extends AppCompatActivity {
             public void onClick(View v) {
                 count_weight++;
                 weight_txt.setText(String.valueOf(count_weight));
+                weight = count_weight;  // Update the weight value here
             }
         });
 
@@ -172,11 +173,11 @@ public class BMICalculator extends AppCompatActivity {
             public void onClick(View v) {
                 count_weight--;
                 weight_txt.setText(String.valueOf(count_weight));
+                weight = count_weight;  // Update the weight value here
             }
         });
 
-        weight = Float.parseFloat(weight_txt.getText().toString());
-
+        weight = Float.parseFloat(weight_txt.getText().toString());  // Make sure weight is initialized correctly
     }
 
     private void CheckSeekbarStatus() {
@@ -203,11 +204,11 @@ public class BMICalculator extends AppCompatActivity {
     }
 
     private void CalculateBMI() {
-
+        Toast.makeText(this, "Height: " + height + " meters, Weight: " + weight + " kg", Toast.LENGTH_LONG).show();
         float BMI = weight / (height * height);
-        Intent intent = new Intent(BMICalculator.this,BMIResult.class);
-        intent.putExtra("BMI",BMI);
-        intent.putExtra("age",age.getText().toString());
+        Intent intent = new Intent(BMICalculator.this, BMIResult.class);
+        intent.putExtra("BMI", BMI);
+        intent.putExtra("age", age.getText().toString());
         startActivity(intent);
     }
 

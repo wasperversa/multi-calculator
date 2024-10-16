@@ -59,22 +59,35 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout rating = bottomSheetDialog.findViewById(R.id.rating);
         LinearLayout contact = bottomSheetDialog.findViewById(R.id.contact);
 
+        if (share != null) {
+            share.setOnClickListener(v -> {
+                // Implement share functionality
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Check out this app!");
+                shareIntent.putExtra(Intent.EXTRA_TEXT, "Download the MultiCalculator app here: https://github.com/wasperversa/multi-calculator");
+                startActivity(Intent.createChooser(shareIntent, "Share via"));
 
-        share.setOnClickListener(v -> {
-            // Implement share functionality
-            Toast.makeText(MainActivity.this, "Share is Clicked", Toast.LENGTH_SHORT).show();
-        });
+                Toast.makeText(MainActivity.this, "Share is Clicked", Toast.LENGTH_SHORT).show();
+            });
+        }
 
-        rating.setOnClickListener(v -> {
-            // Implement rating functionality
-            Toast.makeText(MainActivity.this, "Rating is Clicked", Toast.LENGTH_SHORT).show();
-        });
+        if (rating != null) {
+            rating.setOnClickListener(v -> {
 
-        contact.setOnClickListener(v -> {
-            // Implement contact functionality
-            Toast.makeText(MainActivity.this, "Update is Clicked", Toast.LENGTH_SHORT).show();
-        });
+                // Implement rating functionality
+                Toast.makeText(MainActivity.this, "Rating is Clicked", Toast.LENGTH_SHORT).show();
+            });
+        }
+
+        if (contact != null) {
+            contact.setOnClickListener(v -> {
+                // Implement contact functionality
+                Toast.makeText(MainActivity.this, "Update is Clicked", Toast.LENGTH_SHORT).show();
+            });
+        }
 
         bottomSheetDialog.show();
     }
+
 }
